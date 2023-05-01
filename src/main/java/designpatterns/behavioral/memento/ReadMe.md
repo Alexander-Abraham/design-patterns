@@ -8,6 +8,52 @@ The Memento pattern involves three classes:
 - Memento: This is an object that stores the state of the Originator object. It has two methods: getState() and setState(). The getState() method returns the state of the Originator object, while the setState() method sets the state of the Originator object.
 - Caretaker: This is an object that is responsible for storing and managing the Memento objects. It can store multiple Memento objects and retrieve them as needed.
 
+```java
+public class Originator {
+    private String state;
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public Memento saveStateToMemento() {
+        return new Memento(state);
+    }
+
+    public void getStateFromMemento(Memento memento) {
+        state = memento.getState();
+    }
+}
+
+public class Memento {
+    private String state;
+
+    public Memento(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+}
+
+public class Caretaker {
+    private List<Memento> mementoList = new ArrayList<>();
+
+    public void add(Memento state) {
+        mementoList.add(state);
+    }
+
+    public Memento get(int index) {
+        return mementoList.get(index);
+    }
+}
+```
+
 In this example, the Originator class represents the object whose state needs to be saved and restored. The Memento class represents the object that stores the state of the Originator object. The Caretaker class represents the object that manages the Memento objects.
 
 To use this implementation of the Memento pattern, you can create an instance of the Originator class, set its state, create a Memento object by calling saveStateToMemento(), store the Memento object in a Caretaker object, change the Originator object's state, and then restore the Originator object's state from the stored Memento object by calling getStateFromMemento().

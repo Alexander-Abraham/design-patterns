@@ -1,4 +1,4 @@
-package main.java.designpatterns.memento;
+package main.java.designpatterns.behavioral.memento;
 
 public class Memento {
 	private String content;
