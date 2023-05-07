@@ -76,3 +76,4 @@ In the example above, the `MyArrayList` class implements the `Aggregate` interfa
 
 ### Conclusion
 The Iterator Pattern provides a way to access the elements of a collection of objects sequentially without exposing the underlying representation. It separates the logic for iterating over a collection of objects from the collection itself. By using the Iterator pattern, we can iterate over collections of objects in a uniform way, regardless of their implementation details.
+We can use the normal for loop to iterate over the content of MyArrayList, but it will cause issue when the type of data inside MyArrayList changes like it changes from List to array.
